@@ -46,9 +46,10 @@ public class OverlayTexture : MonoBehaviour {
                 backgroundImage.texture = manager.GetUsersClrTex();
             }
             int indexOfPart = (int)trackedJoint;
-            Debug.Log(indexOfPart);
+           
             //int headIndex = (int)KinectInterop.JointType.Head;
             headCount = indexOfPart;
+            Debug.Log(trackedJoint);
             if (manager.IsUserDetected())
             {
                 long userId = manager.GetUserIdByIndex(playerIndex);
@@ -58,7 +59,7 @@ public class OverlayTexture : MonoBehaviour {
                     Vector3 posJoint = manager.GetJointPosColorOverlay(userId, indexOfPart, Camera.main, Camera.main.pixelRect);
                   
                     Vector3 posJointRaw = manager.GetJointKinectPosition(userId, indexOfPart);
-                      if (posJointRaw != Vector3.zero) //
+                    if (posJointRaw != Vector3.zero) //
                     {
                         Vector2 posDepth = manager.MapSpacePointToDepthCoords(posJointRaw); //
                         ushort depthValue = manager.GetDepthForPixel((int)posDepth.x, (int)posDepth.y);
