@@ -29,12 +29,21 @@ public class LoadLevelWithDelay : MonoBehaviour
         {
             if (validateKinectManager)
             {
-                     if (Input.GetMouseButton(0))
+                     if (Input.GetKeyUp(KeyCode.Alpha2))
                     {
-                      levelLoaded = true;
-                      SceneManager.LoadScene(nextLevel);
+                    StartCoroutine("ChangeLevel");
+                      //levelLoaded = true;
+                      //SceneManager.LoadScene(nextLevel);
                    }
             }
         }
      }
+
+    IEnumerator ChangeLevel()
+    {
+        levelLoaded = true;
+        float fadeTime = GameObject.Find("Fading").GetComponent<Fading>().BeginFade(1);
+        yield return new WaitForSeconds(fadeTime);
+        SceneManager.LoadScene(nextLevel);
+    }
 }
