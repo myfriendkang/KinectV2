@@ -13,18 +13,11 @@ public class LoadFirstLevel : MonoBehaviour
 		
 		if(!levelLoaded && manager && KinectManager.IsKinectInitialized())
 		{
-            if (Input.GetKey(KeyCode.A))
-            {
-                Debug.Log("go 2");
+            if (Input.GetMouseButton(0)) { 
                 levelLoaded = true;
                 SceneManager.LoadScene(1);
             }
-            else if (Input.GetKey(KeyCode.B))
-            {
-                levelLoaded = true;
-                SceneManager.LoadScene(0);
-            }
-		}
-	}
+        }
+    }
 	
 }

@@ -12,6 +12,7 @@ public class AnimationControl : MonoBehaviour
     public int playerIndex = 0;
     private Vector2 handPos = Vector2.zero;
 
+    public Transform targetObj;
     // Use this for initialization
     void Start()
     {
@@ -30,14 +31,16 @@ public class AnimationControl : MonoBehaviour
                 long userId = manager.GetUserIdByIndex(playerIndex);
                 if (manager.IsJointTracked(userId, rightHandindex))
                 {
-                    Vector3 posJointRaw = manager.GetJointKinectPosition(userId, rightHandindex);
                     /*
+                    Vector3 posJointRaw = manager.GetJointKinectPosition(userId, rightHandindex);
+                    
                     if (GameObject.Find("HandRight").activeSelf==true)
                     { 
                         Debug.Log(GameObject.Find("HandRight").GetComponent<Transform>().position);
                         target = new Vector3(GameObject.Find("HandRight").GetComponent<Transform>().position.x, GameObject.Find("HandRight").GetComponent<Transform>().position.y, GameObject.Find("HandRight").GetComponent<Transform>().position.z);
                     }
                     */
+                   // target = new Vector3(targetObj.position.x, targetObj.position.y, targetObj.position.z);
                     
                 }
                 if (Input.GetMouseButton(0))

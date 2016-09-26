@@ -193,9 +193,9 @@ public class BackgroundRemovalManager : MonoBehaviour
 					rectWidth = Mathf.Round(rectHeight * neededFgRect.width / neededFgRect.height);
 				else
 					rectHeight = Mathf.Round(rectWidth * neededFgRect.height / neededFgRect.width);
-				
-				foregroundRect = new Rect((cameraRect.width - rectWidth) / 2, cameraRect.height - (cameraRect.height - rectHeight) / 2, rectWidth, -rectHeight);
-			}
+
+              foregroundRect = new Rect((cameraRect.width - rectWidth) / 2, cameraRect.height - (cameraRect.height - rectHeight) / 2, rectWidth, -rectHeight);
+            }
 
 			isBrInited = true;
 			

@@ -31,9 +31,7 @@ public class OverlayTexture : MonoBehaviour {
             initialRotation = overlayObject.rotation;
             objFlipped = (Vector3.Dot(overlayObject.forward, Vector3.forward) < 0);
             overlayObject.rotation = Quaternion.identity;
-
         }
-
     }
      
 	void Update () {
@@ -49,7 +47,6 @@ public class OverlayTexture : MonoBehaviour {
            
             //int headIndex = (int)KinectInterop.JointType.Head;
             headCount = indexOfPart;
-            Debug.Log(trackedJoint);
             if (manager.IsUserDetected())
             {
                 long userId = manager.GetUserIdByIndex(playerIndex);
@@ -86,11 +83,13 @@ public class OverlayTexture : MonoBehaviour {
                                 if (Input.GetKeyDown(KeyCode.S))
                                 {
                                     isShow = true;
+                                   
                                 }
                                 else if (Input.GetKeyDown(KeyCode.D))
                                 {
                                     isShow = false;
                                 }
+                                
                             }
                         }
 
@@ -104,7 +103,8 @@ public class OverlayTexture : MonoBehaviour {
     {
         return imagePos;
     }
-
+   
+    
     void OnGUI()
     {
         Texture texture = null;
@@ -124,5 +124,6 @@ public class OverlayTexture : MonoBehaviour {
             }
         }
     }
+    
 
 }
